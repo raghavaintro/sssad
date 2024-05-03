@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sad Questions</title>
+</head>
+<body>
+
+<button onclick="askMood()">How are you feeling?</button>
+
+<script>
+let moodCounter = 0;
+
+function askMood() {
+    let mood = prompt("Are you feeling happy or sad?");
+
+    if (mood.toLowerCase() === 'happy') {
+        askHappyQuestions();
+    } else if (mood.toLowerCase() === 'sad') {
+        askSadQuestions();
+    } else {
+        alert("Invalid input. Please enter 'happy' or 'sad'.");
+    }
+}
+
+function askSadQuestions() {
+    moodCounter++;
+
+    if (moodCounter <= 5) {
+        let question;
+        switch (moodCounter) {
+            case 1:
+                question = "Whyyy?";
+                break;
+            case 2:
+                question = "Please don't!";
+                break;
+            case 3:
+                question = "Heyy, smilee!";
+                break;
+            case 4:
+                question = "Eruma siriyea?";
+                break;
+            case 5:
+                question = "Nalla pulla la?";
+                break;
+            default:
+                question = "Still sad?";
+        }
+
+        let confirmation = confirm(question);
+
+        if (confirmation) {
+            if (moodCounter < 5) {
+                askSadQuestions();
+            } else {
+                alert("apaada srichittiya!");
+            }
+        }
+    }
+}
+
+function askHappyQuestions() {
+    alert("unmaiyava??");
+    alert("nadikathaa!");
+    alert("are u sureeeeeeeeeeee!");
+    alert("sari sari nambura eruma!");
+}
+</script>
+
+</body>
+</html>
